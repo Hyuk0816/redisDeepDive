@@ -1,4 +1,4 @@
-package dev.study.redispracticesimpleshopping.common.jwt;
+package dev.study.redispracticesimpleshopping.common.jwt.service;
 
 import dev.study.redispracticesimpleshopping.common.exception.jwt.JwtErrorCode;
 import dev.study.redispracticesimpleshopping.common.exception.jwt.JwtException;

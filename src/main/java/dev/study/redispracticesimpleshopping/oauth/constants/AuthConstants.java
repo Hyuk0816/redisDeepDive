@@ -1,4 +1,4 @@
-package dev.study.redispracticesimpleshopping.user.constants;
+package dev.study.redispracticesimpleshopping.oauth.constants;
 
 public class AuthConstants {
     private AuthConstants() {

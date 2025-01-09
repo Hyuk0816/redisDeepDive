@@ -1,6 +1,6 @@
 package dev.study.redispracticesimpleshopping.common.filter;
 
-import dev.study.redispracticesimpleshopping.common.jwt.TokenProvider;
+import dev.study.redispracticesimpleshopping.common.jwt.service.TokenProvider;
 import dev.study.redispracticesimpleshopping.user.userdetails.CustomUserDetails;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

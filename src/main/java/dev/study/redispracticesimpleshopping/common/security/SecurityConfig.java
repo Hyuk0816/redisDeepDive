@@ -3,7 +3,7 @@ package dev.study.redispracticesimpleshopping.common.security;
 import dev.study.redispracticesimpleshopping.common.filter.AuthoritiesLoggingAfterFilter;
 import dev.study.redispracticesimpleshopping.common.filter.AuthoritiesLoggingAtFilter;
 import dev.study.redispracticesimpleshopping.common.filter.JwtAuthenticationFilter;
-import dev.study.redispracticesimpleshopping.common.jwt.TokenProvider;
+import dev.study.redispracticesimpleshopping.common.jwt.service.TokenProvider;
 import dev.study.redispracticesimpleshopping.user.userdetails.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -48,7 +48,8 @@ public class SecurityConfig implements WebMvcConfigurer {
 			.sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer.sessionCreationPolicy(
 				SessionCreationPolicy.STATELESS))
 			.authorizeHttpRequests((authorize) ->
-				authorize.requestMatchers("/swagger-ui/**", "/api/user/user", "/docs","/v3/api-docs/**", "/index.html").permitAll()
+				authorize.requestMatchers("/swagger-ui/**", "/api/user/user", "/docs","/v3/api-docs/**", "/index.html", "/api/auth").permitAll()
+					.anyRequest().authenticated()
 			)
 			.addFilterAt(new AuthoritiesLoggingAtFilter(), BasicAuthenticationFilter.class)
 			.addFilterAfter(new AuthoritiesLoggingAfterFilter(), BasicAuthenticationFilter.class)
