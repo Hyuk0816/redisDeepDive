@@ -1,5 +1,6 @@
 package dev.study.redispracticesimpleshopping.common.redis;
 
+import dev.study.redispracticesimpleshopping.product.dto.ProductDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.EnableCaching;
@@ -36,4 +37,15 @@ public class RedisConfig {
 		template.setEnableTransactionSupport(true);
 		return template;
 	}
+
+	@Bean
+	public RedisTemplate<String, ProductDto> redisTemplateProductDto() {
+		RedisTemplate<String, ProductDto> template = new RedisTemplate<>();
+		template.setConnectionFactory(redisConnectionFactory());
+		template.setDefaultSerializer(new GenericJackson2JsonRedisSerializer());
+		template.setEnableTransactionSupport(true);
+		return template;
+	}
+
+
 }
